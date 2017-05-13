@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 class MySQLiServiceProvider extends ServiceProvider
 {
     /**
-     * Boot the authentication services for the application.
+     * Boot the services for the application.
      *
      * @return void
      */
