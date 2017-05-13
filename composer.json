@@ -1,7 +1,7 @@
 {
     "name": "shakahl/laravel-eloquent-mysqli",
     "type": "library",
-    "description": "MySQLi driver (connector) for Laravel Eloquent database",
+    "description": "MySQLi driver (connector) for Laravel 5.4 Eloquent database",
     "keywords": ["Laravel", "Lumen", "MySQL", "mysqli", "driver", "connector"],
     "homepage": "http://github.com/shakahl/laravel-eloquent-mysqli",
     "license": "MIT",
