@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Database\Concerns\ManagesTransactions;
 use Illuminate\Database\Connection;
 use Illuminate\Database\ConnectionInterface;
-use Illuminate\Database\DetectsDeadlocks;
+use Illuminate\Database\DetectsConcurrencyErrors;
 use Illuminate\Database\DetectsLostConnections;
 use Illuminate\Database\Events\StatementPrepared;
 use Illuminate\Database\Grammar;
@@ -22,7 +22,7 @@ use mysqli;
 
 class MySQLiConnection extends Connection implements ConnectionInterface
 {
-    use DetectsDeadlocks,
+    use DetectsConcurrencyErrors,
         DetectsLostConnections,
         ManagesTransactions;
 
