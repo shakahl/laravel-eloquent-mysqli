@@ -192,7 +192,7 @@ class MySQLiConnection extends Connection implements ConnectionInterface
             $statement = $this->prepared2($this->getMySqliForSelect($useRead)
                 ->prepare($query));
 
-            //$this->bindValues($statement, $this->prepareBindings($bindings));
+            $this->bindValues($statement, $this->prepareBindings($bindings));
 
             $statement->execute();
 
@@ -244,11 +244,10 @@ class MySQLiConnection extends Connection implements ConnectionInterface
             $statement = $this->prepared2($this->getMySqliForSelect($useReadPdo)
                 ->prepare($query));
 
-            /*
+
             $this->bindValues(
                 $statement, $this->prepareBindings($bindings)
             );
-            */
 
             // Next, we'll execute the query against the database and return the statement
             // so we can return the cursor. The cursor will use a PHP generator to give
@@ -264,12 +263,6 @@ class MySQLiConnection extends Connection implements ConnectionInterface
         while ($record = $result->fetch_object()) {
             yield $record;
         }
-
-        /*
-        while ($record = $statement->fetch()) {
-            yield $record;
-        }
-        */
     }
 
     /**
@@ -306,10 +299,8 @@ class MySQLiConnection extends Connection implements ConnectionInterface
             $query = $this->buildSql($query, $this->prepareBindings($bindings));
 
             $statement = $this->getMySqli()->prepare($query);
-            dd($statement);
-            //
 
-            //$this->bindValues($statement, $this->prepareBindings($bindings));
+            $this->bindValues($statement, $this->prepareBindings($bindings));
 
             return $statement->execute();
         });
