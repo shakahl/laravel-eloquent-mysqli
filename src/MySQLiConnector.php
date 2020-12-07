@@ -27,10 +27,15 @@ class MySQLiConnector extends Connector implements ConnectorInterface
 
         $options = $this->getOptions($config);
 
-        // We need to grab the PDO options that should be used while making the brand
-        // new connection instance. The PDO options control various aspects of the
-        // connection's behavior, and some might be specified by the developers.
-        $connection = $this->createConnection($dsn, $config, $options);
+        // Inject the connection in directly if possible
+        if (isset($config['connection']) && is_a($config['connection'], mysqli::class)) {
+            $connection = $config['connection'];
+        } else {
+            // We need to grab the PDO options that should be used while making the brand
+            // new connection instance. The PDO options control various aspects of the
+            // connection's behavior, and some might be specified by the developers.
+            $connection = $this->createConnection($dsn, $config, $options);
+        }
 
         if (!empty($config['database'])) {
             $connection->query("use `{$config['database']}`;");
