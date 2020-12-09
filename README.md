@@ -1,5 +1,5 @@
 # shakahl/laravel-eloquent-mysqli
-MySQLi driver (connector) for Laravel **5.4** Eloquent database
+MySQLi driver (connector) for Laravel **8.x** Eloquent database
 
 ## Installation
 
